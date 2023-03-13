@@ -6,10 +6,10 @@ from email.message import Message
 from email.utils import formataddr, getaddresses, parseaddr
 from smtplib import SMTP as SMTPCLient
 
+import config
 from aiosmtpd.controller import Controller
 from aiosmtpd.smtp import AuthResult, LoginPassword
 
-import config
 from utils import (
     add_or_replace_header,
     get_contact_alias,
