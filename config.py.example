@@ -1,0 +1,18 @@
+host = "https://app.simplelogin.io"
+apikey = "xxxxxxxxxxxx"
+suffixes = [
+  "@example.com",
+]
+mailbox_id = 1 # mailbox id for new alias
+
+username = "some_really_cool_username"
+password = "password"
+ssl = True
+cert = "certs/fullchain.pem"
+key = "certs/privkey.pem"
+
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+smtp_username = "someone@gmail.com"
+smtp_password = "p@ssw0rd"
+smtp_from = "someone@gmail.com"
