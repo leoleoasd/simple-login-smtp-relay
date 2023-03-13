@@ -2,8 +2,9 @@ from email.message import EmailMessage, Message
 from email.utils import formataddr, parseaddr
 from typing import List, Optional
 
-import config
 import requests
+
+import config
 
 aliases = []
 contacts = {}
