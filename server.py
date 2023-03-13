@@ -3,7 +3,7 @@ import email
 import logging
 import ssl
 from email.message import Message
-from email.utils import getaddresses, parseaddr
+from email.utils import formataddr, getaddresses, parseaddr
 from smtplib import SMTP as SMTPCLient
 
 from aiosmtpd.controller import Controller
@@ -78,6 +78,7 @@ class RelayHandler:
         new_addrs = get_contact_alias(mail_from, get_from_header(msg, "cc"))
         if new_addrs:
             add_or_replace_header(msg, "cc", ",".join(new_addrs))
+        add_or_replace_header(msg, "from", formataddr(("", config.smtp_from)))
         rcpt_tos = get_contact_alias(mail_from, rcpt_tos)
         print("new_message", msg.as_string())
 
@@ -98,7 +99,7 @@ async def amain():
     cont = Controller(
         handler,
         hostname="",
-        port=8025,
+        port=config.port,
         authenticator=Authenticator(),
         auth_required=True,
         auth_require_tls=config.ssl,

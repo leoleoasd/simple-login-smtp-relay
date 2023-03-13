@@ -1,16 +1,25 @@
 host = "https://app.simplelogin.io"
 apikey = "xxxxxxxxxxxx"
+
+# get with
+# curl https://app.simplelogin.io/api/v5/alias/options -H "Authentication: $TOKEN" | jq '[.suffixes[] | .suffix | select(startswith("@"))]'
+# or manually fill your domains
 suffixes = [
   "@example.com",
+  "@your-custom-subdomain.aleeas.com"
 ]
+# get with curl https://app.simplelogin.io/api/v2/mailboxes -H "Authentication: $TOKEN"
 mailbox_id = 1 # mailbox id for new alias
 
+# username ans password for the relay server
 username = "some_really_cool_username"
 password = "password"
+port = 587
 ssl = True
 cert = "certs/fullchain.pem"
 key = "certs/privkey.pem"
 
+# smtp host for your mailbox
 smtp_host = "smtp.gmail.com"
 smtp_port = 587
 smtp_username = "someone@gmail.com"
